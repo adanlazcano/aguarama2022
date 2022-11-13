@@ -1,9 +1,9 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import { enviroment } from './src/config/config.js';
-import './src/config/database.js';
-import ClientRoute from './src/routes/Client.js';
+const  express = require('express');
+const  morgan = require('morgan');
+const  cors = require('cors');
+const   {enviroment}  = require('./src/config/config.js');
+require('./src/config/database.js');
+const  ClientRoute = require('./src/routes/Client.js');
 const app = express();
 
 //settings

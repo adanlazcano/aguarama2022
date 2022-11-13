@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import { enviroment } from './config.js';
+const mongoose = require('mongoose');
+const { enviroment } = require('./config.js');
 
 // Database connection
 try {

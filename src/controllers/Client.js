@@ -1,8 +1,8 @@
-import Client from "../models/Client.js";
+const Client = require("../models/Client.js");
 
 // Get Participants (Clients)
 
-export const getClients = async(req, res) => {
+ const getClients = async(req, res) => {
     try {
         const clients = await Client.find({});
         res.status(200).json(clients);
@@ -15,7 +15,7 @@ export const getClients = async(req, res) => {
 
 // Participants register
 
-export const saveClient = async(req, res) => {
+const saveClient = async(req, res) => {
     try {
         const { nombre, cel } = req.body;
         const newClient = {
@@ -33,8 +33,7 @@ export const saveClient = async(req, res) => {
 }
 
 // Get participant per ID
-
-export const getClient = async(req, res) => {
+const getClient = async(req, res) => {
     try {
         const client = await Client.findOne({ cel: req.params.cel });
         res.status(200).json(client);
@@ -47,7 +46,7 @@ export const getClient = async(req, res) => {
 
 // Add Star to participant
 
-export const addStar = async(req, res) => {
+ const addStar = async(req, res) => {
     try {
 
         let message = "";
@@ -78,7 +77,7 @@ export const addStar = async(req, res) => {
 
 //Remove Star to participant
 
-export const removeStar = async(req, res) => {
+ const removeStar = async(req, res) => {
     try {
         const id = req.body.id;
         const client = await Client.findById(id);
@@ -92,7 +91,7 @@ export const removeStar = async(req, res) => {
 }
 
 // Reset Starts to participants
-export const resetStars = async(req, res) => {
+ const resetStars = async(req, res) => {
     try {
         const id = req.body.id;
         const client = await Client.findOneAndUpdate(id, { stars: 0 }, { new: true });
@@ -103,4 +102,13 @@ export const resetStars = async(req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+}
+
+module.exports = {
+    getClients,
+    getClient,
+    saveClient,
+    addStar,
+    removeStar,
+    resetStars
 }

@@ -1,25 +1,31 @@
-import express from 'express';
-import { getClient, getClients, removeStar, addStar, saveClient, resetStars } from '../controllers/Client.js';
+const express= require("express");
+const {
+  getClient,
+  getClients,
+  removeStar,
+  addStar,
+  saveClient,
+  resetStars,
+} = require("../controllers/Client.js");
 
 const ClientRoute = express.Router();
 
 // Get Participants (Clients)
-ClientRoute.get('/', getClients);
+ClientRoute.get("/", getClients);
 
 // Participants register
-ClientRoute.post('/', saveClient);
+ClientRoute.post("/", saveClient);
 
 // Get participant per ID
-ClientRoute.get('/:cel', getClient);
+ClientRoute.get("/:cel", getClient);
 
 // Add Star to participant
-ClientRoute.put('/star/add', addStar);
+ClientRoute.put("/star/add", addStar);
 
 //Remove Star to participant
-ClientRoute.put('/star/remove', removeStar);
+ClientRoute.put("/star/remove", removeStar);
 
 // Reset Stars to participants
-ClientRoute.put('/star/reset', resetStars);
+ClientRoute.put("/star/reset", resetStars);
 
-
-export default ClientRoute;
+module.exports = ClientRoute;

@@ -1,4 +1,4 @@
-@api = https://aguarama.herokuapp.com/api/client
+@api = http://localhost:8800/api/client
 
 ### GET CLIENTS
 GET {{api}}

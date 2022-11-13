@@ -1,10 +1,12 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
 
 // Enviroment Variables Config
 
-export const enviroment = {
+   const enviroment = {
 
     port: process.env.PORT,
     url_database: process.env.MONGODB_ATLAS_URL
 }
+
+module.exports ={enviroment}
